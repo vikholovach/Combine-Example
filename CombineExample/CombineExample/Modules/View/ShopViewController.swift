@@ -8,22 +8,39 @@
 import UIKit
 
 class ShopViewController: UIViewController {
-
+    
+    //MARK: - Outlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    //presenter
+    var presenter: ShopViewPresenterProtocol!
+    
+    //dataSource
+    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.title = "Shop"
+        
     }
+}
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ShopViewController: ShopViewProtocol {
+    func onFetchSuccess() {
+        
     }
-    */
-
+    
+    func onFetchError(with error: Error) {
+        let alert = UIAlertController(
+            title: error.localizedDescription,
+            message: nil,
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(
+            title: "OK",
+            style: .cancel))
+        self.present(alert, animated: true)
+    }
+    
+    
 }
