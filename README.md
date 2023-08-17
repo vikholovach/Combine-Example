@@ -1,5 +1,5 @@
 # Combine-Example
-**Combine's main elements: ** <br />
+**Combine's main elements:**
 
 # Publishers: <br />
 **Value type** <br />
